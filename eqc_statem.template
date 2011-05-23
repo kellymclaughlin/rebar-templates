@@ -1,0 +1,8 @@
+{variables, [
+  {name, "mymodule"}, 
+  {copyright_year, "2011"},
+  {author_name, ""},
+  {author_email,""}
+]}.
+{dir, "tests"}.
+{template, "eqc_statem.erl", "tests/{{name}}_eqc.erl"}.
