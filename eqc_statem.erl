@@ -1,12 +1,12 @@
 %%%'   HEADER
 %% @author    {{author_name}} <{{author_email}}>
 %% @copyright {{copyright_year}} {{author_name}}
-%% @doc       Quickcheck eqc_statem test suite module {{name}}.
+%% @doc       Quickcheck eqc_statem test suite for the module {{name}}.
 %%            The Quickcheck tests are wrapped in an eunit test
 %%            for execution convenience.
 %% @end
 
--module({{name}}_tests).
+-module({{name}}_eqc).
 -author('{{author_name}} <{{author_email}}>').
 
 -ifdef(EQC).
@@ -18,6 +18,7 @@
 -define(NOASSERT, true).
 
 -define(MODNAME, {{name}}).
+-define(TEST_ITERATIONS, 500).
 -define(QC_OUT(P),
         eqc:on_output(fun(Str, Args) -> io:format(user, Str, Args) end, P)).
 
@@ -34,7 +35,7 @@ eqc_test_() ->
         %% Run the quickcheck tests
         {timeout, 60000, % timeout is in msec
          %% Indicate the number of test iterations for each property here
-         ?_assertEqual(true, quickcheck(numtests(500, ?QC_OUT(prop_{{name}}))))
+         ?_assertEqual(true, quickcheck(numtests(?TEST_ITERATIONS, ?QC_OUT(prop_{{name}}))))
         }
        ]
       }
@@ -96,5 +97,3 @@ postcondition(_,_,_) ->
 %%====================================================================
 
 -endif. % EQC
-
-%%% vim: set filetype=erlang tabstop=2 foldmarker=%%%',%%%. foldmethod=marker:
