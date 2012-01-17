@@ -107,6 +107,6 @@ test(N) ->
     quickcheck(numtests(N, prop_{{name}}())).
 
 check() ->
-    check(prop_chash_next_index(), current_counterexample()).
+    check(prop_{{name}}(), current_counterexample()).
 
 -endif. % EQC

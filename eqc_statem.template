@@ -1,8 +1,8 @@
 {variables, [
-  {name, "mymodule"}, 
-  {copyright_year, "2011"},
-  {author_name, "Susan Potter"},
-  {author_email,"me@susanpotter.net"}
+  {name, "mymodule"},
+  {copyright_year, "2012"},
+  {author_name, "Me"},
+  {author_email,"me@me.com"}
 ]}.
 {dir, "test"}.
 {template, "eqc_statem.erl", "test/{{name}}_eqc.erl"}.
